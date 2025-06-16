@@ -1,0 +1,40 @@
+<div class="relative p-1">
+  <div
+    class="absolute inset-0 rounded-md ring-4 pointer-events-none"
+    [ngClass]="{
+      'pulse-fast ring-red-500/70': pulse,
+      'ring-cyan-500/40': !pulse
+    }"
+  ></div>
+
+  <div
+    class="relative w-full rounded-md
+      shadow-lg shadow-cyan-500/50
+      bg-gradient-to-tl to-[#191e40] from-[#0c1220]"
+  >
+    <h2 class="text-2xl text-cyan-200 font-bold px-4 mb-5">{{ titleCard }}</h2>
+
+    <img src="/forno.svg" alt="" class="w-full h-20 object-cover" />
+
+    <div class="flex flex-col p-2">
+      <app-progress-bar
+        [title]="'Purity'"
+        [goal]="3000"
+        [current]="2500"
+        class="text-cyan-50"
+      />
+      <app-progress-bar
+        [title]="'Pressure'"
+        [goal]="2000"
+        [current]="1200"
+        class="text-cyan-50"
+      />
+      <app-progress-bar
+        [title]="'Flow'"
+        [goal]="2500"
+        [current]="3000"
+        class="text-cyan-50"
+      />
+    </div>
+  </div>
+</div>
