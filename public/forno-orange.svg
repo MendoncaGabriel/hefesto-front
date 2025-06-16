@@ -1,0 +1,33 @@
+<svg width="749" height="500" viewBox="0 100 749 450" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M151 235.275C155.418 235.275 159 231.693 159 227.275V196H590L590.482 226.86C590.55 231.229 594.111 234.735 598.481 234.735H691V443C691 447.418 687.418 451 683 451H66C61.5817 451 58 447.418 58 443V235.275H151Z" fill="#FF7F32" stroke="#D2691E" stroke-width="2" stroke-linejoin="round"/>
+  <rect x="531" y="446" width="35" height="8" rx="2" fill="#FF7F32" stroke="#D2691E" stroke-width="4"/>
+  <rect x="180" y="446" width="35" height="8" rx="2" fill="#FF7F32" stroke="#D2691E" stroke-width="4"/>
+  <rect x="127" y="220" width="4" height="17" fill="#FF7F32" stroke="#D2691E" stroke-width="4"/>
+  <rect x="120" y="179" width="17" height="43" rx="4" fill="#FFB566" stroke="#D2691E" stroke-width="0.5"/>
+  <circle cx="128.5" cy="187.5" r="6.5" fill="#C21B0E" stroke="#979797" stroke-width="0.5"/>
+  <circle cx="128.5" cy="200.5" r="6.5" fill="#D6D226" stroke="#979797" stroke-width="0.5"/>
+  <circle cx="128.5" cy="213.5" r="6.5" fill="#23CF16" stroke="#979797" stroke-width="0.5"/>
+  <rect x="200" y="292" width="172" height="52" rx="8" fill="#FFAD66" stroke="#D2691E" stroke-width="2"/>
+  <rect x="200" y="337" width="172" height="110" rx="8" fill="#FFCBA3" stroke="#D2691E" stroke-width="2"/>
+  <rect x="345" y="350" width="12" height="5" rx="2.5" fill="#D2691E" stroke="#D2691E"/>
+  <rect x="61" y="291" width="134" height="52" rx="8" fill="#FFAD66" stroke="#D2691E" stroke-width="2"/>
+  <rect x="61" y="337" width="134" height="110" rx="8" fill="#FFCBA3" stroke="#D2691E" stroke-width="2"/>
+  <rect x="554" y="292" width="134" height="52" rx="8" fill="#FFAD66" stroke="#D2691E" stroke-width="2"/>
+  <rect x="554" y="338" width="134" height="110" rx="8" fill="#FFCBA3" stroke="#D2691E" stroke-width="2"/>
+  <rect x="377" y="292" width="172" height="52" rx="8" fill="#FFAD66" stroke="#D2691E" stroke-width="2"/>
+  <rect x="377" y="337" width="172" height="110" rx="8" fill="#FFCBA3" stroke="#D2691E" stroke-width="2"/>
+  <rect x="386" y="350" width="12" height="5" rx="2.5" fill="#D2691E" stroke="#D2691E"/>
+  <rect x="199" y="200" width="351" height="87" rx="4" fill="#FFE4CC" stroke="#D2691E" stroke-width="2"/>
+  <path d="M226.07 218H527.93" stroke="#D2691E" stroke-width="4" stroke-linecap="round"/>
+  <path d="M226.07 226.5H527.93" stroke="#D2691E" stroke-width="4" stroke-linecap="round"/>
+  <path d="M226.07 208.5H527.93" stroke="#D2691E" stroke-width="4" stroke-linecap="round"/>
+  <rect x="163" y="200" width="32" height="87" rx="3" fill="#FFAD66" stroke="#D2691E" stroke-width="2"/>
+  <rect x="554" y="200" width="32" height="87" rx="3" fill="#FFAD66" stroke="#D2691E" stroke-width="2"/>
+  <rect x="322" y="272" width="98" height="7" rx="2" fill="#D2691E"/>
+  <rect x="219" y="279" width="306" height="7" rx="2" fill="#FFAD66" stroke="#D2691E"/>
+  <rect x="590" y="239" width="98" height="48" rx="4" fill="#FFCBA3" stroke="#D2691E" stroke-width="2"/>
+  <rect x="61" y="239" width="98" height="48" rx="4" fill="#FFCBA3" stroke="#D2691E" stroke-width="2"/>
+  <circle cx="116" cy="259" r="15" fill="#FFE4CC" stroke="#D2691E"/>
+  <circle cx="142.5" cy="270.5" r="11.5" fill="#FFE4CC" stroke="#D2691E"/>
+  <rect x="132" y="244" width="23" height="13" rx="3" fill="#FFE4CC" stroke="#D2691E"/>
+</svg>

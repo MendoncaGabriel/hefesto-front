@@ -1,10 +1,12 @@
+import { NgClass } from '@angular/common';
 import { Component, Input, signal, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-progress-bar',
   standalone: true,
   templateUrl: './progress-bar.component.html',
-  styleUrl: './progress-bar.component.css'
+  styleUrl: './progress-bar.component.css',
+  imports: [NgClass]
 })
 export class ProgressBarComponent implements OnChanges {
   @Input() current: number = 0;
@@ -38,15 +40,15 @@ export class ProgressBarComponent implements OnChanges {
     const currentPercentage = this.percentage();
 
     // change colors
-    if(currentPercentage >= 100){
+    if(currentPercentage >= 75){
       this.color.set(this.setColors["red"])
       this.shadow.set(this.setShadow["red"])
-    }
+    } 
     if(currentPercentage <= 50){
       this.color.set(this.setColors["green"])
       this.shadow.set(this.setShadow["green"])
     }
-    if(currentPercentage > 50 && currentPercentage < 70){
+    if(currentPercentage > 65 && currentPercentage < 75){
       this.color.set(this.setColors["orange"])
       this.shadow.set(this.setShadow["orange"])
     }

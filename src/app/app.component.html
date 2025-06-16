@@ -2,27 +2,80 @@
 
   <!-- Grade 1 -->
   <div class="grid grid-cols-4 gap-5">
-    <div class="border-2 border-red-500 w-24 aspect-video"></div>
-    <div class="border-2 border-red-500 w-24 aspect-video"></div>
-    <div class="border-2 border-red-500 w-24 aspect-video"></div>
-    <div class="border-2 border-red-500 w-24 aspect-video"></div>
+    <div class="border-2 border-gray-500 w-24 aspect-video"></div>
+    <div class="border-2 border-gray-500 w-24 aspect-video"></div>
+    <div class="border-2 border-gray-500 w-24 aspect-video"></div>
+    <div class="border-2 border-gray-500 w-24 aspect-video"></div>
   </div>
 
   <!-- Grade 2 -->
   <div class="grid grid-cols-4 gap-5">
-    <div class="border-2 border-red-500 w-full aspect-video"></div>
-    <div class="border-2 border-red-500 w-full aspect-video"></div>
-    <div class="border-2 border-red-500 w-full aspect-video"></div>
-    <div class="border-2 border-red-500 w-full aspect-video"></div>
+    <div class="border-2 border-gray-500 w-full aspect-video"></div>
+    <div class="border-2 border-gray-500 w-full aspect-video"></div>
+    <div class="border-2 border-gray-500 w-full aspect-video"></div>
+    <div class="border-2 border-gray-500 w-full aspect-video"></div>
   </div>
 
   <!-- Cards -->
   <div class="grid grid-cols-5 gap-5">
-    <app-card-line [titleCard]="'Jari'" [pulse]="true" />
-    <app-card-line [titleCard]="'Jutai'"/>
-    <app-card-line [titleCard]="'Xingu'" />
-    <app-card-line [titleCard]="'Negro'"/>
-    <app-card-line [titleCard]="'Line 2'"/>
+    <app-card-line
+      [titleCard]="'Jari'"
+
+      [purityCurrent]="1500"
+      [purityGoal]="3000"
+
+      [pressureCurrent]="800"
+      [pressureGoal]="2000"
+
+      [flowCurrent]="1700"
+      [flowGoal]="2500"
+    />
+    <app-card-line
+      [titleCard]="'Jutai'"
+      [purityCurrent]="2600"
+      [purityGoal]="3000"
+
+      [pressureCurrent]="800"
+      [pressureGoal]="2000"
+
+      [flowCurrent]="1700"
+      [flowGoal]="2500"
+    />
+    <app-card-line
+      [titleCard]="'Xingu'"
+
+      [purityCurrent]="1500"
+      [purityGoal]="3000"
+
+      [pressureGoal]="800"
+      [pressureCurrent]="2000"
+
+      [flowCurrent]="1700"
+      [flowGoal]="2500"
+    />
+    <app-card-line
+      [titleCard]="'Negro'"
+      [purityCurrent]="2000"
+      [purityGoal]="3000"
+
+      [pressureCurrent]="800"
+      [pressureGoal]="2000"
+
+      [flowCurrent]="1700"
+      [flowGoal]="2500"
+    />
+    <app-card-line
+      [titleCard]="'Line 2'"
+      [purityCurrent]="0"
+      [purityGoal]="3000"
+
+      [pressureCurrent]="0"
+      [pressureGoal]="2000"
+
+      [flowCurrent]="0"
+      [flowGoal]="2500"
+    />
+
   </div>
 
 </div>
