@@ -22,7 +22,7 @@ export class CardLineComponent {
 
   alert = computed(() => {
     const progress = (this.purityCurrent / this.purityGoal) * 100;
-    if (progress >= 65 || progress <= 75) {
+    if (progress >= 65 && progress <= 75) {
       return true
     }
 

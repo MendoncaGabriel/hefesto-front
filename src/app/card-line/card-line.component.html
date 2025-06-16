@@ -18,15 +18,15 @@
   >
     <h2 class="text-2xl text-cyan-200 font-bold px-4 mb-5">{{ titleCard }}</h2>
 
-@if (pulse()) {
-  <img src="/forno.red.svg" alt="" class="w-full h-20 object-cover" />
-} @else if (active() === true) {
-  <img src="/forno-green.svg" alt="" class="w-full h-20 object-cover" />
-} @else if (active() === false && alert() === true) {
-  <img src="/forno-gray.svg" alt="" class="w-full h-20 object-cover" />
-} @else if (alert() === true) {
-  <img src="/forno-orange.svg" alt="" class="w-full h-20 object-cover" />
-}
+    @if (alert() == true && pulse() == false) {
+      <img src="/forno-orange.svg" alt="" class="w-full h-20 object-cover" />
+    } @else if (pulse() == true ) {
+      <img src="/forno.red.svg" alt="" class="w-full h-20 object-cover" />
+    } @else if (active()) {
+      <img src="/forno-green.svg" alt="" class="w-full h-20 object-cover" />
+    } @else {
+      <img src="/forno-gray.svg" alt="" class="w-full h-20 object-cover" />
+    }
 
 
     <div class="flex flex-col p-2">
