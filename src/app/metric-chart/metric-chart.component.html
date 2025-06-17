@@ -12,23 +12,54 @@
       <line [attr.x1]="x" y1="0" [attr.x2]="x" y2="300" stroke="#4B5563" stroke-dasharray="4 2" />
     </g>
 
+    <!-- Faixa entre mínimo e máximo -->
+    <rect
+      x="0"
+      [attr.y]="yMaximo"
+      width="500"
+      [attr.height]="faixaAltura"
+      fill="#3b82f6"
+      fill-opacity="0.1"
+    />
+
+    <!-- Linhas de limite -->
+    <line x1="0" [attr.y1]="yMaximo" x2="500" [attr.y2]="yMaximo" stroke="#10B981" stroke-width="2" stroke-dasharray="6 3" />
+    <line x1="0" [attr.y1]="yMinimo" x2="500" [attr.y2]="yMinimo" stroke="#10B981" stroke-width="2" stroke-dasharray="6 3" />
+
     <!-- Eixos -->
     <line x1="0" y1="300" x2="500" y2="300" stroke="white" />
     <line x1="0" y1="0" x2="0" y2="300" stroke="white" />
 
     <!-- Texto Y -->
-    <g *ngFor="let i of [0,10,20,30,40,50,60,70,80,90,100]">
-      <text x="-10" [attr.y]="300 - (i * 3)" text-anchor="end" alignment-baseline="middle" font-size="14" fill="white">
-        {{ i }}°
+    @for (i of legendaY; track $index) {
+      <text
+        x="-10"
+        [attr.y]="300 - ($index * (300 / (legendaY.length - 1)))"
+        text-anchor="end"
+        alignment-baseline="middle"
+        font-size="14"
+        fill="white"
+      >
+        {{ i }}
       </text>
-    </g>
+    }
+
+
 
     <!-- Texto X -->
-    <g *ngFor="let i of [0,10,20,30,40,50,60,70,80,90,100]">
-      <text [attr.x]="i * 5" y="320" text-anchor="middle" font-size="14" fill="white">
-        {{ i }}s
+    @for (i of legendaX; track $index) {
+      <text
+        [attr.x]="$index * (500 / (legendaX.length - 1))"
+        y="320"
+        text-anchor="middle"
+        font-size="14"
+        fill="white"
+      >
+        {{ i }}
       </text>
-    </g>
+    }
+
+
 
     <!-- Linha curva com animação -->
     <path
@@ -38,5 +69,47 @@
       stroke-width="3"
       class="transition-all duration-300 ease-in-out animate-line"
     />
+
+    <!-- Texto Máx com fundo -->
+    <rect
+      x="-50"
+      [attr.y]="yMaximo - 12"
+      width="40"
+      height="20"
+      rx="4"
+      fill="#10B981"
+      fill-opacity="0.9"
+    />
+    <text
+      x="-30"
+      [attr.y]="yMaximo"
+      text-anchor="middle"
+      alignment-baseline="middle"
+      font-size="14"
+      fill="white"
+    >
+      Máx
+    </text>
+
+    <!-- Texto Mín com fundo -->
+    <rect
+      x="-50"
+      [attr.y]="yMinimo - 12"
+      width="40"
+      height="20"
+      rx="4"
+      fill="#10B981"
+      fill-opacity="0.9"
+    />
+    <text
+      x="-30"
+      [attr.y]="yMinimo"
+      text-anchor="middle"
+      alignment-baseline="middle"
+      font-size="14"
+      fill="white"
+    >
+      Mín
+    </text>
   </g>
 </svg>

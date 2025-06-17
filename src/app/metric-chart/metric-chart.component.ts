@@ -1,5 +1,5 @@
 import { CommonModule, NgFor } from '@angular/common';
-import { Component, ChangeDetectionStrategy, inject, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, signal, Input, computed } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
@@ -16,11 +16,30 @@ export class MetricChartComponent {
   cdr = inject(ChangeDetectorRef);
 
   private speedAnimation: number = 200;
-  private maxVariante: number = 5; // variação da aleatoriedade
+  private maxVariante = computed(() => this.maximo - this.minimo)
   private repeticoesRestantes = 10;
-  private valorMinimo = 50;
-  private valorMaximo = 70
 
+
+
+
+  @Input() legendaX: string[] = []
+  @Input() legendaY: string[] = []
+
+  @Input() minimo: number = 20
+  @Input() maximo: number = 50
+
+  get yMinimo(): number {
+    return 300 - this.minimo * 3;
+  }
+
+  get yMaximo(): number {
+    return 300 - this.maximo * 3;
+  }
+
+
+  get faixaAltura(): number {
+    return this.yMinimo - this.yMaximo;
+  }
 
   constructor() {
     this.iniciarAtualizacao();
@@ -52,8 +71,8 @@ export class MetricChartComponent {
 
 
   numeroAleatorio(ultimoValor: number) {
-    const variacao = Math.floor(Math.random() * (this.maxVariante * 2 + 1)) - this.maxVariante;
-    const novoValor = Math.max(this.valorMinimo, Math.min(this.valorMaximo, ultimoValor + variacao));
+    const variacao = Math.floor(Math.random() * (this.maxVariante() * 2 + 1)) - this.maxVariante();
+    const novoValor = Math.max(this.minimo, Math.min(this.maximo, ultimoValor + variacao));
     return novoValor;
   }
 

@@ -4,17 +4,41 @@
 
   <h2 class="title">Nitrogen Entry into the System</h2>
   <div class="grid grid-cols-4 gap-5">
-    <app-metric-indicator [title]="'Pressure'" [metric]="'1.5 ppm'"/>
-    <app-metric-indicator [title]="'Flow'" [metric]="'132 m/s'" [alert]="true"/>
+    <app-metric-indicator [title]="'Pressure'" [metric]="'1.5 bar'"/>
+    <app-metric-indicator [title]="'Flow'" [metric]="'132 m³/h'" [alert]="true"/>
     <app-metric-indicator [title]="'Purity'" [metric]="'1.5 ppm'"/>
-    <app-metric-indicator [title]="'Temperature'" [metric]="'15°'" />
+    <app-metric-indicator [title]="'Temperature'" [metric]="'15°C'" />
   </div>
 
   <div class="grid grid-cols-4 gap-5">
-    <app-metric-chart />
-    <app-metric-chart />
-    <app-metric-chart />
-    <app-metric-chart />
+    <!-- pressão -->
+    <app-metric-chart
+      [legendaX]="['14:00', '14:10', '14:20', '14:30', '14:40', '14:50']"
+      [legendaY]="['0.00', '2.500', '5.00', '7.50', '10.00']"
+      [maximo]="80"
+      [minimo]="45"
+    />
+    <!-- flow -->
+    <app-metric-chart
+      [legendaX]="['14:00', '14:10', '14:20', '14:30', '14:40', '14:50']"
+      [legendaY]="['0.00', '62.5', '125.0', '187.5', '250.0']"
+      [maximo]="90"
+      [minimo]="60"
+    />
+    <!-- purity -->
+    <app-metric-chart
+      [legendaX]="['14:00', '14:10', '14:20', '14:30', '14:40', '14:50']"
+      [legendaY]="['0.00', '500.0', '1000.0', '1500.0', '2000.0']"
+      [maximo]="50"
+      [minimo]="10"
+    />
+    <!-- temperature -->
+    <app-metric-chart
+      [legendaX]="['14:00', '14:10', '14:20', '14:30', '14:40', '14:50']"
+      [legendaY]="['20.0', '27.0', '35.00', '42.5', '50.0']"
+      [maximo]="45"
+      [minimo]="35"
+    />
   </div>
 
   <h2 class="title">Nitrogen Consumption in the Oven</h2>
