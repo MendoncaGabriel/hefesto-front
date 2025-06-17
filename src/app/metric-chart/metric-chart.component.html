@@ -3,13 +3,12 @@
   preserveAspectRatio="xMidYMid meet"
   class="w-full h-auto rounded-md ring-4 ring-cyan-500/40 bg-gradient-to-bl from-[#0c1220] to-[#191e40] text-white"
 >
-  <!-- Agrupamento com transformação para centralizar -->
   <g transform="translate(60, 20)">
     <!-- Linhas de grade -->
-    <g *ngFor="let y of linhasY">
+    <g *ngFor="let y of linhasY; trackBy: trackByIndex">
       <line x1="0" [attr.y1]="y" x2="500" [attr.y2]="y" stroke="#4B5563" stroke-dasharray="4 2" />
     </g>
-    <g *ngFor="let x of linhasX">
+    <g *ngFor="let x of linhasX; trackBy: trackByIndex">
       <line [attr.x1]="x" y1="0" [attr.x2]="x" y2="300" stroke="#4B5563" stroke-dasharray="4 2" />
     </g>
 
@@ -31,7 +30,13 @@
       </text>
     </g>
 
-    <!-- Linha curva -->
-    <path [attr.d]="linhaCurva" fill="none" stroke="#3b82f6" stroke-width="3" />
+    <!-- Linha curva com animação -->
+    <path
+      [attr.d]="linhaCurva"
+      fill="none"
+      stroke="#3b82f6"
+      stroke-width="3"
+      class="transition-all duration-300 ease-in-out animate-line"
+    />
   </g>
 </svg>
