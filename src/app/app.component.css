@@ -1,0 +1,5 @@
+@import 'tailwindcss';
+
+.title {
+  @apply p-0 text-gray-50 text-2xl font-bold text-shadow-black/90 text-shadow-md
+}
