@@ -9,13 +9,13 @@
   >
 
     <div class="bg-gradient-to-tr {{color()}} h-5 rounded-full flex items-center justify-end pr-2" [style.width.%]="percentage() > 100 ? 100 : percentage()">
-      <p class="text-sm font-bold drop-shadow drop-shadow-black/30">{{percentage().toFixed(0)}}%</p>
+      <p class="text-sm font-bold drop-shadow drop-shadow-black/30">ACT {{goal - current}}</p>
     </div>
   </div>
 
   <div class="flex items-center justify-between text-sm">
     <p class="text-shadow-md text-shadow-black/50"><span class="text-xs">min:</span> {{current}}</p>
-    <p class="text-shadow-md text-shadow-black/50"><span class="text-xs">act:</span> {{goal - current}}</p>
+    <!-- <p class="text-shadow-md text-shadow-black/50"><span class="text-xs">act:</span> {{goal - current}}</p> -->
     <p class="text-shadow-md text-shadow-black/50"><span class="text-xs">max:</span> {{goal}}</p>
   </div>
 </div>
