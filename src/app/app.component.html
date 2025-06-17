@@ -2,10 +2,10 @@
 
   <!-- Grade 1 -->
   <div class="grid grid-cols-4 gap-5">
-    <div class="border-2 border-gray-500 w-20 aspect-video"></div>
-    <div class="border-2 border-gray-500 w-20 aspect-video"></div>
-    <div class="border-2 border-gray-500 w-20 aspect-video"></div>
-    <div class="border-2 border-gray-500 w-20 aspect-video"></div>
+    <app-metric-indicator [title]="'Pressure'" [metric]="'1.5 ppm'"/>
+    <app-metric-indicator [title]="'Flow'" [metric]="'132 m/s'" [alert]="true"/>
+    <app-metric-indicator [title]="'Purity'" [metric]="'1.5 ppm'"/>
+    <app-metric-indicator [title]="'Temperature'" [metric]="'15°'" />
   </div>
 
   <!-- Grade 2 -->

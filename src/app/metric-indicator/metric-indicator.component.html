@@ -1,0 +1,21 @@
+<div class="relative">
+  <div
+    class="absolute inset-0 rounded-md ring-4 pointer-events-none"
+    [ngClass]="{
+      'pulse-fast ring-red-500': pulse(),
+      'ring-cyan-500/40': !pulse()
+    }"
+  ></div>
+  <div
+    class=" px-4 py-1 text-cyan-50 font-bold flex items-center justify-between"
+    [ngClass]="{
+      'bg-red-950': pulse(),
+      'to-[#191e40] from-[#0c1220]': !pulse(),
+    }"
+  >
+    <h2 class="text-lg">{{title}}</h2>
+    <p class="text-lg">{{metric}}</p>
+  </div>
+
+</div>
+
