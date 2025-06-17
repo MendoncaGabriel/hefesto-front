@@ -1,6 +1,5 @@
 <div class="p-4 bg-gradient-to-tl to-[#212854] from-[#0e1524] h-screen overflow-hidden flex flex-col gap-4 ">
 
-  <!-- Grade 1 -->
   <div class="grid grid-cols-4 gap-5">
     <app-metric-indicator [title]="'Pressure'" [metric]="'1.5 ppm'"/>
     <app-metric-indicator [title]="'Flow'" [metric]="'132 m/s'" [alert]="true"/>
@@ -8,15 +7,13 @@
     <app-metric-indicator [title]="'Temperature'" [metric]="'15°'" />
   </div>
 
-  <!-- Grade 2 -->
   <div class="grid grid-cols-4 gap-5">
-    <div class="border-2 border-gray-500 w-full aspect-video"></div>
-    <div class="border-2 border-gray-500 w-full aspect-video"></div>
-    <div class="border-2 border-gray-500 w-full aspect-video"></div>
-    <div class="border-2 border-gray-500 w-full aspect-video"></div>
+    <app-metric-chart />
+    <app-metric-chart />
+    <app-metric-chart />
+    <app-metric-chart />
   </div>
 
-  <!-- Cards -->
   <div class="grid grid-cols-5 gap-4 ">
     <app-card-line
       [titleCard]="'Jari'"
