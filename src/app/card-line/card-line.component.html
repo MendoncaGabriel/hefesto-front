@@ -1,4 +1,4 @@
-<div class="relative p-1">
+<div class="relative">
   <div
     class="absolute inset-0 rounded-md ring-4 pointer-events-none"
     [ngClass]="{
@@ -8,44 +8,41 @@
   ></div>
 
   <div
-    class="relative w-full rounded-md
-      shadow-lg shadow-cyan-500/50
-      bg-gradient-to-tl "
-      [ngClass]="{
-        'bg-red-950': pulse(),
-        'to-[#191e40] from-[#0c1220]': !pulse(),
-      }"
+    class="relative p-1 w-full rounded-md shadow-lg shadow-cyan-500/50 bg-gradient-to-tl"
+    [ngClass]="{
+      'bg-red-950': pulse(),
+      'to-[#191e40] from-[#0c1220]': !pulse(),
+    }"
   >
-    <h2 class="text-2xl text-cyan-200 font-bold px-4 mb-5">{{ titleCard }}</h2>
+    <h2 class="text-2xl text-cyan-200 font-bold px-4 mb-1">{{ titleCard }}</h2>
 
     @if (alert() == true && pulse() == false) {
-      <img src="/forno-orange.svg" alt="" class="w-full h-20 object-cover" />
+      <div class="w-full h-16 fornoOrange"></div>
     } @else if (pulse() == true ) {
-      <img src="/forno.red.svg" alt="" class="w-full h-20 object-cover" />
+      <div class="w-full h-16 fornoRed"></div>
     } @else if (active()) {
-      <img src="/forno-green.svg" alt="" class="w-full h-20 object-cover" />
+      <div class="w-full h-16 fornoGreen"></div>
     } @else {
-      <img src="/forno-gray.svg" alt="" class="w-full h-20 object-cover" />
+      <div class="w-full h-16 fornoGray"></div>
     }
-
-    <div class="flex flex-col p-2">
+    <div class="flex flex-col">
       <app-progress-bar
         [title]="'Purity'"
         [goal]="purityGoal"
         [current]="purityCurrent"
-        class="text-cyan-50"
+        class="text-cyan-50 "
       />
       <app-progress-bar
         [title]="'Pressure'"
         [goal]="pressureGoal"
         [current]="pressureCurrent"
-        class="text-cyan-50"
+        class="text-cyan-50 "
       />
       <app-progress-bar
         [title]="'Flow'"
         [goal]="flowGoal"
         [current]="flowCurrent"
-        class="text-cyan-50"
+        class="text-cyan-50 "
       />
     </div>
   </div>

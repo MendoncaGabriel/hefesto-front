@@ -1,0 +1,24 @@
+.fornoGray {
+  background-image: url('/forno-gray.svg');
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+}
+.fornoOrange {
+  background-image: url('/forno-orange.svg');
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+}
+.fornoRed {
+  background-image: url('/forno-red.svg');
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+}
+.fornoGreen {
+  background-image: url('/forno-green.svg');
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+}
