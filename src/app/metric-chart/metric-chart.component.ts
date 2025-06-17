@@ -14,7 +14,13 @@ export class MetricChartComponent {
   altura = 300;
   dados = signal<number[]>(Array.from({ length: 30 }, () => 100));
   cdr = inject(ChangeDetectorRef);
-  speedAnimation: number = 300
+
+  private speedAnimation: number = 200;
+  private maxVariante: number = 5; // variação da aleatoriedade
+  private repeticoesRestantes = 10;
+  private valorMinimo = 50;
+  private valorMaximo = 70
+
 
   constructor() {
     this.iniciarAtualizacao();
@@ -22,21 +28,35 @@ export class MetricChartComponent {
 
   iniciarAtualizacao() {
     const atualizar = () => {
-      const novosDados = [...this.dados().slice(1), this.numeroAleatorio()];
+      const dadosAtuais = this.dados();
+      const ultimoValor = dadosAtuais[dadosAtuais.length - 1] ?? 100;
+
+      let novoValor: number;
+
+      if (this.repeticoesRestantes > 0) {
+        novoValor = ultimoValor;
+        this.repeticoesRestantes--;
+      } else {
+        novoValor = this.numeroAleatorio(ultimoValor);
+        this.repeticoesRestantes = 3; // reinicia o contador
+      }
+
+      const novosDados = [...dadosAtuais.slice(1), novoValor];
       this.dados.set(novosDados);
       this.cdr.markForCheck();
       setTimeout(() => requestAnimationFrame(atualizar), this.speedAnimation);
     };
+
     requestAnimationFrame(atualizar);
   }
 
-  numeroAleatorio() {
-    const dadosAtuais = this.dados();
-    const ultimoValor = dadosAtuais[dadosAtuais.length - 1] ?? 100;
-    const variacao = Math.floor(Math.random() * 21) - 10; // entre -10 e +10
-    const novoValor = Math.max(0, Math.min(100, ultimoValor + variacao)); // mantém entre 0 e 100
-    return novoValor;
-  }
+
+  numeroAleatorio(ultimoValor: number) {
+    const variacao = Math.floor(Math.random() * (this.maxVariante * 2 + 1)) - this.maxVariante;
+    const novoValor = Math.max(this.valorMinimo, Math.min(this.valorMaximo, ultimoValor + variacao));
+    return novoValor;
+  }
+
 
   get linhasY() {
     return Array.from({ length: 11 }, (_, i) => i * (this.altura / 10));
@@ -76,3 +96,4 @@ export class MetricChartComponent {
     return index;
   }
 }
+
