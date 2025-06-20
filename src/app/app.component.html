@@ -1,22 +1,21 @@
-<div class="background p-4 bg-gradient-to-tl to-[#262e61] from-[#0e1524] h-screen overflow-hidden flex flex-col gap-4 ">
+<div class="background p-5 bg-gradient-to-tl to-[#262e61] from-[#0e1524] h-screen overflow-x-hidden flex flex-col gap-4 ">
 
   <!-- indicadores -->
   <h2 class="title">Nitrogen Entry into the System</h2>
-  <div class="grid grid-cols-4 gap-5">
-    @for (i of nitrogenGenerator(); track $index) {
-      <app-metric-indicator
-        [title]="i.title"
-        [metric]="i.current"
-        [uom]="i.uom"
-        [alert]="i.alert" />
-      }
-  </div>
+
 
   <!-- gerador nitrogenio -->
-  <div class="grid grid-cols-4 gap-5">
+  <div class="grid grid-cols-2 gap-5">
     @for (i of nitrogenGenerator(); track $index) {
 
       <div class="w-full h-auto rounded-md ring-4 ring-cyan-500/40 bg-gradient-to-bl from-[#0c1220] to-[#191e40] text-white">
+
+        <app-metric-indicator
+          [title]="i.title"
+          [metric]="i.current"
+          [uom]="i.uom"
+          [alert]="i.alert"
+        />
 
         <!-- TODO: trocar [current]="" para [current]="i.current" -->
         <app-metric-chart
@@ -27,7 +26,7 @@
           [current]="i.chart.data[0]"
           [data]="i.chart.data"
           [width]="600"
-          [height]="300"
+          [height]="200"
         />
       </div>
 
