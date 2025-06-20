@@ -73,6 +73,31 @@
     </text>
   </g>
 
+  <g>
+    <rect
+      [attr.x]="width - 43"
+      [attr.y]="-6"
+      width="50"
+      height="24"
+      rx="6"
+      ry="6"
+      fill="#fff"
+    ></rect>
+
+    <text
+      [attr.x]="width - 10"
+      [attr.y]="12"
+      text-anchor="end"
+      font-size="18"
+      fill="#0D1324"
+      font-weight="bold"
+
+    >
+      {{ current }}
+    </text>
+  </g>
+
+
   <!-- Legendas do eixo X (fora da grade, abaixo) -->
   <g *ngIf="xLabels.length > 0" font-size="12" fill="#E5E7EB">
     <text

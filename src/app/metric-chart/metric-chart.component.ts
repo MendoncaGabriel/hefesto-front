@@ -18,8 +18,6 @@ export class MetricChartComponent {
   @Input() minValue = 20;
   @Input() maxValue = 50;
 
-
-
   readonly dataService = inject(ChartDataService);
   readonly data = this.dataService.data;
 
@@ -42,6 +40,11 @@ export class MetricChartComponent {
   get xLines() {
     const values = this.data();
     return Array.from({ length: values.length }, (_, i) => i * (this.width / values.length));
+  }
+
+  get current(): number {
+    const values = this.data();
+    return values[values.length - 1] ?? 0;
   }
 
   get curveLine() {
