@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 
 .title {
-  @apply p-0 text-gray-50 text-2xl font-bold text-shadow-black/90 text-shadow-md
+  @apply py-2 my-5 text-gray-50 text-4xl font-bold text-shadow-black/90 text-shadow-md
 }
 
 
@@ -17,17 +17,10 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* feixe de luz */
-  /* background-image: url('https://img.freepik.com/vetores-gratis/conceito-abstrato-futurista_23-2148409810.jpg'); */
+  background-image: url('/background.jpg');
 
-
-  /* luzes */
-  /* background-image: url('https://i.gifer.com/J59.gif'); */
-
-  /* background-image: url('/4882066.jpg'); */
-
-  background-repeat: no-repeat;
+  
   background-size: cover;
-  opacity: 0.3; /* controla a transparência */
+  opacity: 0.2;
   z-index: -1;
 }
