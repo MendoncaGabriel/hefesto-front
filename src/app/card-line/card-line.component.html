@@ -14,7 +14,7 @@
       'to-[#191e40] from-[#0c1220]': !pulse(),
     }"
   >
-    <h2 class="text-2xl text-cyan-200 font-bold px-4 mb-1">{{ titleCard }}</h2>
+    <h2 class="text-2xl text-cyan-200 font-bold px-4 mb-1">{{ title }}</h2>
 
     @if (alert() == true && pulse() == false) {
       <div class="w-full h-16 fornoOrange"></div>
@@ -28,8 +28,8 @@
     <div class="flex flex-col">
       <app-progress-bar
         [title]="'Purity'"
-        [max]="purityGoal"
-        [current]="purityCurrent"
+        [max]="max"
+        [current]="current"
         class="text-cyan-50 "
       />
     </div>

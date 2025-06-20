@@ -9,6 +9,7 @@
     }
   </div>
 
+  <!-- grafico -->
   <div class="grid grid-cols-4 gap-5">
     @for (i of metricsChart; track $index) {
       <app-metric-chart
@@ -25,13 +26,10 @@
   <div class="grid grid-cols-5 gap-4">
     @for (i of cardLines; track $index) {
       <app-card-line
-        [titleCard]="i.title"
-        [purityCurrent]="i.purityCurrent"
-        [purityGoal]="i.pressureGoal"
-        [pressureCurrent]="i.pressureCurrent"
-        [pressureGoal]="i.pressureGoal"
-        [flowCurrent]="i.flowCurrent"
-        [flowGoal]="i.flowGoal"
+        [title]="i.title"
+        [current]="i.current"
+        [max]="i.max"
+
       />
     }
   </div>

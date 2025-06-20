@@ -6,12 +6,8 @@ import { MetricChartComponent } from "./metric-chart/metric-chart.component";
 
 interface CardLine {
   title: string
-  purityCurrent: number
-  purityGoal: number
-  pressureCurrent: number
-  pressureGoal: number
-  flowCurrent: number
-  flowGoal: number
+  current: number
+  max: number
 }
 
 interface MetricChart {
@@ -67,48 +63,28 @@ const mockMetricCharts: MetricChart[] = [
 const mockCardLines: CardLine[] = [
   {
     title: 'Jari',
-    purityCurrent: 1500,
-    purityGoal: 3000,
-    pressureCurrent: 800,
-    pressureGoal: 2000,
-    flowCurrent: 1700,
-    flowGoal: 2500
+    current: 1500,
+    max: 3000,
   },
   {
     title: 'Jutai',
-    purityCurrent: 2600,
-    purityGoal: 3000,
-    pressureCurrent: 800,
-    pressureGoal: 2000,
-    flowCurrent: 1700,
-    flowGoal: 2500
+    current: 2600,
+    max: 3000,
   },
   {
     title: 'Xingu',
-    purityCurrent: 1500,
-    purityGoal: 3000,
-    pressureCurrent: 2000,
-    pressureGoal: 800,
-    flowCurrent: 1700,
-    flowGoal: 2500
+    current: 1500,
+    max: 3000,
   },
   {
     title: 'Negro',
-    purityCurrent: 2000,
-    purityGoal: 3000,
-    pressureCurrent: 800,
-    pressureGoal: 2000,
-    flowCurrent: 1700,
-    flowGoal: 2500
+    current: 2000,
+    max: 3000,
   },
   {
     title: 'Line 2',
-    purityCurrent: 0,
-    purityGoal: 3000,
-    pressureCurrent: 0,
-    pressureGoal: 2000,
-    flowCurrent: 0,
-    flowGoal: 2500
+    current: 0,
+    max: 3000,
   }
 ];
 

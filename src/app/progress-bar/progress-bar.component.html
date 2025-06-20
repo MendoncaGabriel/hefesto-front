@@ -23,7 +23,7 @@
     class="absolute text-shadow-md text-shadow-black/50 transform -translate-x-1/2 z-40"
     style="left: 70%; top: 105%"
   >
-    {{ goal }}
+    {{ max }}
   </p>
 
   <!-- Barra de progresso -->
@@ -38,7 +38,7 @@
       [style.width.%]="percentage() > 100 ? 100 : percentage()"
     >
       <p class="text-sm font-bold drop-shadow drop-shadow-black/30">
-        ACT {{ goal - current }}
+        ACT {{ max - current }}
       </p>
     </div>
   </div>
