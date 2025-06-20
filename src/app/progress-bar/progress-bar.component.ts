@@ -10,7 +10,7 @@ import { Component, Input, signal, OnChanges, SimpleChanges } from '@angular/cor
 })
 export class ProgressBarComponent implements OnChanges {
   @Input() current: number = 0;
-  @Input() goal: number = 100;
+  @Input() max: number = 100;
   @Input() title: string = "undefined";
 
   setColors = {
@@ -18,6 +18,7 @@ export class ProgressBarComponent implements OnChanges {
     "red": "to-red-600 from-red-500",
     "orange": "to-orange-600 from-orange-500",
   }
+
   setShadow = {
     "green": "shadow-green-600/50",
     "red": "shadow-red-600/50",
@@ -30,8 +31,8 @@ export class ProgressBarComponent implements OnChanges {
   color = signal<string>(this.setColors["green"]);
 
   ngOnChanges(changes: SimpleChanges): void {
-    if (this.goal > 0) {
-      const value = (this.current / this.goal) * 100;
+    if (this.max > 0) {
+      const value = (this.current / this.max) * 100;
       this.percentage.set(value);
     } else {
       this.percentage.set(0);
@@ -43,7 +44,7 @@ export class ProgressBarComponent implements OnChanges {
     if(currentPercentage >= 75){
       this.color.set(this.setColors["red"])
       this.shadow.set(this.setShadow["red"])
-    } 
+    }
     if(currentPercentage <= 50){
       this.color.set(this.setColors["green"])
       this.shadow.set(this.setShadow["green"])

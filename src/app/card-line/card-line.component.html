@@ -28,20 +28,8 @@
     <div class="flex flex-col">
       <app-progress-bar
         [title]="'Purity'"
-        [goal]="purityGoal"
+        [max]="purityGoal"
         [current]="purityCurrent"
-        class="text-cyan-50 "
-      />
-      <app-progress-bar
-        [title]="'Pressure'"
-        [goal]="pressureGoal"
-        [current]="pressureCurrent"
-        class="text-cyan-50 "
-      />
-      <app-progress-bar
-        [title]="'Flow'"
-        [goal]="flowGoal"
-        [current]="flowCurrent"
         class="text-cyan-50 "
       />
     </div>
