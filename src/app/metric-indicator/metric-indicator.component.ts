@@ -9,7 +9,7 @@ import { Component, computed, Input, signal } from '@angular/core';
 })
 export class MetricIndicatorComponent {
   @Input() title: string = "";
-  @Input() alert: boolean = false;
+  @Input() alert?: boolean = false;
   @Input() metric: string = "";
 
   pulse = computed(() => this.alert)

@@ -1,107 +1,39 @@
 <div
   class="background p-4 bg-gradient-to-tl to-[#262e61] from-[#0e1524] h-screen overflow-hidden flex flex-col gap-4 "
 >
-
   <h2 class="title">Nitrogen Entry into the System</h2>
   <div class="grid grid-cols-4 gap-5">
-    <app-metric-indicator [title]="'Pressure'" [metric]="'1.5 bar'"/>
-    <app-metric-indicator [title]="'Flow'" [metric]="'132 m³/h'" [alert]="true"/>
-    <app-metric-indicator [title]="'Purity'" [metric]="'1.5 ppm'"/>
-    <app-metric-indicator [title]="'Temperature'" [metric]="'15°C'" />
+    @for (i of metricsIndicator; track $index) {
+      <app-metric-indicator [title]="i.title" [metric]="i.metric" [alert]="i.alert"/>
+
+    }
   </div>
 
   <div class="grid grid-cols-4 gap-5">
-    <!-- pressão -->
-    <app-metric-chart
-      [legendaX]="['14:00', '14:10', '14:20', '14:30', '14:40', '14:50']"
-      [legendaY]="['0.00', '2.500', '5.00', '7.50', '10.00']"
-      [maximo]="80"
-      [minimo]="55"
-    />
-    <!-- flow -->
-    <app-metric-chart
-      [legendaX]="['14:00', '14:10', '14:20', '14:30', '14:40', '14:50']"
-      [legendaY]="['0.00', '62.5', '125.0', '187.5', '250.0']"
-      [maximo]="90"
-      [minimo]="60"
-    />
-    <!-- purity -->
-    <app-metric-chart
-      [legendaX]="['14:00', '14:10', '14:20', '14:30', '14:40', '14:50']"
-      [legendaY]="['0.00', '500.0', '1000.0', '1500.0', '2000.0']"
-      [maximo]="50"
-      [minimo]="10"
-    />
-    <!-- temperature -->
-    <app-metric-chart
-      [legendaX]="['14:00', '14:10', '14:20', '14:30', '14:40', '14:50']"
-      [legendaY]="['20.0', '27.0', '35.00', '42.5', '50.0']"
-      [maximo]="45"
-      [minimo]="35"
-    />
+    @for (i of metricsChart; track $index) {
+      <app-metric-chart
+        [legendaX]="i.legendaX"
+        [legendaY]="i.legendaY"
+        [maximo]="i.maximo"
+        [minimo]="i.minimo"
+      />
+    }
   </div>
 
   <h2 class="title">Nitrogen Consumption in the Oven</h2>
 
   <div class="grid grid-cols-5 gap-4">
-    <app-card-line
-      [titleCard]="'Jari'"
-
-      [purityCurrent]="1500"
-      [purityGoal]="3000"
-
-      [pressureCurrent]="800"
-      [pressureGoal]="2000"
-
-      [flowCurrent]="1700"
-      [flowGoal]="2500"
-    />
-    <app-card-line
-      [titleCard]="'Jutai'"
-      [purityCurrent]="2600"
-      [purityGoal]="3000"
-
-      [pressureCurrent]="800"
-      [pressureGoal]="2000"
-
-      [flowCurrent]="1700"
-      [flowGoal]="2500"
-    />
-    <app-card-line
-      [titleCard]="'Xingu'"
-
-      [purityCurrent]="1500"
-      [purityGoal]="3000"
-
-      [pressureGoal]="800"
-      [pressureCurrent]="2000"
-
-      [flowCurrent]="1700"
-      [flowGoal]="2500"
-    />
-    <app-card-line
-      [titleCard]="'Negro'"
-      [purityCurrent]="2000"
-      [purityGoal]="3000"
-
-      [pressureCurrent]="800"
-      [pressureGoal]="2000"
-
-      [flowCurrent]="1700"
-      [flowGoal]="2500"
-    />
-    <app-card-line
-      [titleCard]="'Line 2'"
-      [purityCurrent]="0"
-      [purityGoal]="3000"
-
-      [pressureCurrent]="0"
-      [pressureGoal]="2000"
-
-      [flowCurrent]="0"
-      [flowGoal]="2500"
-    />
-
+    @for (i of cardLines; track $index) {
+      <app-card-line
+        [titleCard]="i.title"
+        [purityCurrent]="i.purityCurrent"
+        [purityGoal]="i.pressureGoal"
+        [pressureCurrent]="i.pressureCurrent"
+        [pressureGoal]="i.pressureGoal"
+        [flowCurrent]="i.flowCurrent"
+        [flowGoal]="i.flowGoal"
+      />
+    }
   </div>
 
 </div>
