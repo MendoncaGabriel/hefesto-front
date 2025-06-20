@@ -1,4 +1,4 @@
-<div class="bg-gradient-to-tl to-[#262e61] from-[#0e1524] h-screen overflow-x-hidden flex flex-col gap-4 ">
+<div class="bg-gradient-to-tl to-[#262e61] from-[#0e1524] h-screen overflow-x-hidden flex flex-col gap-x-4 ">
 
   <app-header />
 
@@ -9,48 +9,53 @@
 
 
     <!-- gerador nitrogenio -->
-    <div class="grid grid-cols-2 gap-5">
-      @for (i of nitrogenGenerator(); track $index) {
+     <div class="grid grid-cols-5">
+       <div class="grid grid-cols-2 gap-5 col-span-3">
+         @for (i of nitrogenGenerator(); track $index) {
 
-        <div class="w-full h-auto rounded-md ring-4 ring-cyan-500/40 bg-gradient-to-bl from-[#0c1220] to-[#191e40] text-white">
+           <div class="w-full h-auto rounded-md ring-4 ring-cyan-500/40 bg-gradient-to-bl from-[#0c1220] to-[#191e40] text-white">
 
-          <app-metric-indicator
-            [title]="i.title"
-            [metric]="i.current"
-            [uom]="i.uom"
-            [alert]="i.alert"
-          />
+             <app-metric-indicator
+               [title]="i.title"
+               [metric]="i.current"
+               [uom]="i.uom"
+               [alert]="i.alert"
+             />
 
-          <!-- TODO: trocar [current]="" para [current]="i.current" -->
-          <app-metric-chart
-            [xLabels]="i.chart.xLabels"
-            [yLabels]="i.chart.yLabels"
-            [minValue]="0"
-            [maxValue]="i.max"
-            [current]="i.chart.data[0]"
-            [data]="i.chart.data"
-            [width]="600"
-            [height]="200"
-          />
-        </div>
+             <!-- TODO: trocar [current]="" para [current]="i.current" -->
+             <app-metric-chart
+               [xLabels]="i.chart.xLabels"
+               [yLabels]="i.chart.yLabels"
+               [minValue]="0"
+               [maxValue]="i.max"
+               [current]="i.chart.data[0]"
+               [data]="i.chart.data"
+               [width]="600"
+               [height]="200"
+             />
+           </div>
 
-      }
-    </div>
+         }
+       </div>
+
+        <img src="/gerador3d.png" alt="logo" class="flutuando m-auto col-span-2 w-[70%] lux scale-120">
+     </div>
 
 
     <!-- forno -->
     <h2 class="title">Nitrogen Consumption in the Oven</h2>
+    <div class="flex overflow-auto gap-4 p-5">
+      @for (i of oven(); track $index) {
+
+      <app-card-line
+        [title]="i.title"
+        [current]="i.current"
+        [max]="i.max"
+      />
+      }
+    </div>
   </main>
 
-  <!-- <div class="grid grid-cols-5 gap-4">
-    @for (i of cardLines; track $index) {
-    <app-card-line
-      [title]="i.title"
-      [current]="i.current"
-      [max]="i.max"
-    />
-    }
-  </div> -->
 
 </div>
 

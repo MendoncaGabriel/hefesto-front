@@ -19,8 +19,39 @@
   height: 100%;
   background-image: url('/background.jpg');
 
-  
+
   background-size: cover;
   opacity: 0.2;
   z-index: -1;
+}
+
+
+@keyframes flutuar {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes brilhar {
+
+  0%,
+  100% {
+    /* box-shadow: 0 0 10px #ff150088, 0 0 20px #ff590066, 0 0 40px #ff660044; */
+    filter: drop-shadow(0 0 5px #00c6c6);
+  }
+
+  50% {
+    /* box-shadow: 0 0 20px #ff0000cc, 0 0 40px #ff0000aa, 0 0 60px #ff000088; */
+    filter: drop-shadow(0 0 10px #00ffff);
+  }
+}
+
+.lux {
+  animation: flutuar 4s ease-in-out infinite, brilhar 2s ease-in-out infinite;
 }
