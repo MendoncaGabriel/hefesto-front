@@ -2,15 +2,15 @@ import { Injectable, signal, computed } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class ChartDataService {
-  private readonly minValue = 20;
-  private readonly maxValue = 50;
+  private readonly minValue = 0;
+  private readonly maxValue = 2000;
   private readonly maxVariation = computed(() => this.maxValue - this.minValue);
   private remainingRepeats = 10;
 
   private readonly _data = signal<number[]>(Array.from({ length: 30 }, () => 100));
   public readonly data = this._data.asReadonly();
 
-  private readonly speed = 200;
+  private readonly speed = 100;
 
   constructor() {
     this.start();

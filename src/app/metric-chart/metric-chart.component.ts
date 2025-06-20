@@ -21,26 +21,58 @@ export class MetricChartComponent {
   readonly dataService = inject(ChartDataService);
   readonly data = this.dataService.data;
 
-  get yMin(): number {
-    return 300 - this.minValue * 3;
+  get yMax(): number {
+    return this.height - (this.maxValue - this.minLabel) * this.escalaYLabel;
   }
 
-  get yMax(): number {
-    return 300 - this.maxValue * 3;
+  get yMin(): number {
+    return this.height - (this.minValue - this.minLabel) * this.escalaYLabel;
   }
+
+
+  get escalaYLabel(): number {
+    return this.height / (this.maxLabel - this.minLabel);
+  }
+
 
   get heightRange(): number {
     return this.yMin - this.yMax;
   }
 
   get yLines() {
-    return Array.from({ length: 11 }, (_, i) => i * (this.height / 10));
+    if (this.yLabels.length > 1) {
+      return Array.from({ length: this.yLabels.length }, (_, i) =>
+        i * (this.height / (this.yLabels.length - 1))
+      );
+    }
+    return [];
   }
 
+  get escalaY(): number {
+  return this.height / (this.maxLabel - this.minLabel);
+}
+
   get xLines() {
-    const values = this.data();
-    return Array.from({ length: values.length }, (_, i) => i * (this.width / values.length));
+    if (this.xLabels.length > 1) {
+      return Array.from({ length: this.xLabels.length }, (_, i) =>
+        i * (this.width / (this.xLabels.length - 1))
+      );
+    }
+    return [];
   }
+
+  get minLabel(): number {
+  return parseFloat(this.yLabels[0]) || 0;
+}
+
+  get maxLabel(): number {
+    return parseFloat(this.yLabels[this.yLabels.length - 1]) || 100;
+  }
+
+  get escalaYData(): number {
+    return this.height / (this.maxValue - this.minValue);
+  }
+
 
   get current(): number {
     const values = this.data();
@@ -49,16 +81,25 @@ export class MetricChartComponent {
 
   get curveLine() {
     const values = this.data();
+    if (values.length < 2) return '';
+
     const scaleX = this.width / (values.length - 1);
-    const scaleY = this.height / 100;
+    // Use escala Y baseada no range minValue -> maxValue, porém ajustado para a escala das labels
+    // Para isso, criamos escala relativa dentro do intervalo das labels
+    const escalaYRange = this.height / (this.maxLabel - this.minLabel);
 
     const points = values.map((val, i) => {
       const x = i * scaleX;
-      const y = this.height - val * scaleY;
+
+      // Clampe o valor para não sair do intervalo minValue/maxValue
+      const clampedVal = Math.min(Math.max(val, this.minValue), this.maxValue);
+
+      // Ajuste o y relativo ao clampedVal e as labels
+      // Importante usar minLabel para alinhar com o eixo y do gráfico
+      const y = this.height - (clampedVal - this.minLabel) * escalaYRange;
+
       return { x, y };
     });
-
-    if (points.length < 2) return '';
 
     let d = `M ${points[0].x},${points[0].y}`;
     for (let i = 1; i < points.length; i++) {
@@ -71,6 +112,7 @@ export class MetricChartComponent {
 
     return d;
   }
+
 
   trackByIndex(index: number): number {
     return index;

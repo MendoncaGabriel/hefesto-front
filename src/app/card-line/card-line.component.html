@@ -30,10 +30,16 @@
         [title]="'Purity'"
         [max]="max"
         [current]="current"
+        class="px-2"
       />
 
       <div class="">
-        <app-metric-chart/>
+        <app-metric-chart
+          [xLabels]="['14:00', '14:10', '14:20', '14:30', '14:40', '14:50']"
+          [yLabels]="['0.00', '500.0', '1000.0', '1500.0', '2000.0']"
+          [maxValue]="1600"
+          [minValue]="0"
+        />
       </div>
     </div>
   </div>

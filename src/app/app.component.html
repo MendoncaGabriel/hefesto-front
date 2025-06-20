@@ -22,7 +22,11 @@
 
   <div class="grid grid-cols-5 gap-4">
     @for (i of cardLines; track $index) {
-    <app-card-line [title]="i.title" [current]="i.current" [max]="i.max" />
+    <app-card-line
+      [title]="i.title"
+      [current]="i.current"
+      [max]="i.max"
+    />
     }
   </div>
 
