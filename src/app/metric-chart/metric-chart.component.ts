@@ -20,8 +20,6 @@ export class MetricChartComponent {
   private repeticoesRestantes = 10;
 
 
-
-
   @Input() legendaX: string[] = []
   @Input() legendaY: string[] = []
 

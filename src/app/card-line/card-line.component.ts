@@ -1,10 +1,11 @@
 import { Component, Input, signal, effect, computed } from '@angular/core';
 import { ProgressBarComponent } from "../progress-bar/progress-bar.component";
 import { CommonModule, NgClass } from '@angular/common';
+import { MetricLineChartComponent } from "../metric-line-chart/metric-line-chart.component";
 
 @Component({
   selector: 'app-card-line',
-  imports: [ProgressBarComponent, NgClass, CommonModule],
+  imports: [ProgressBarComponent, NgClass, CommonModule, MetricLineChartComponent],
   templateUrl: './card-line.component.html',
   styleUrl: './card-line.component.css'
 })
