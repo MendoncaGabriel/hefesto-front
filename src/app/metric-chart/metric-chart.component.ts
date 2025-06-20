@@ -1,6 +1,5 @@
 import { CommonModule, NgFor } from '@angular/common';
-import { Component, ChangeDetectionStrategy, Input, inject, computed } from '@angular/core';
-import { ChartDataService } from './mock-chart-data.service';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 
 @Component({
   selector: 'app-metric-chart',
@@ -10,16 +9,15 @@ import { ChartDataService } from './mock-chart-data.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MetricChartComponent {
-  width = 500;
-  height = 300;
-
   @Input() xLabels: string[] = [];
   @Input() yLabels: string[] = [];
   @Input() minValue = 20;
   @Input() maxValue = 50;
+  @Input() current: number = 0;
+  @Input() width: number = 500;
+  @Input() height: number = 500;
 
-  readonly dataService = inject(ChartDataService);
-  readonly data = this.dataService.data;
+  @Input() data: number[] = []; // Agora os dados vêm 100% via Input!
 
   get yMax(): number {
     return this.height - (this.maxValue - this.minLabel) * this.escalaYLabel;
@@ -29,11 +27,9 @@ export class MetricChartComponent {
     return this.height - (this.minValue - this.minLabel) * this.escalaYLabel;
   }
 
-
   get escalaYLabel(): number {
     return this.height / (this.maxLabel - this.minLabel);
   }
-
 
   get heightRange(): number {
     return this.yMin - this.yMax;
@@ -49,8 +45,8 @@ export class MetricChartComponent {
   }
 
   get escalaY(): number {
-  return this.height / (this.maxLabel - this.minLabel);
-}
+    return this.height / (this.maxLabel - this.minLabel);
+  }
 
   get xLines() {
     if (this.xLabels.length > 1) {
@@ -62,8 +58,8 @@ export class MetricChartComponent {
   }
 
   get minLabel(): number {
-  return parseFloat(this.yLabels[0]) || 0;
-}
+    return parseFloat(this.yLabels[0]) || 0;
+  }
 
   get maxLabel(): number {
     return parseFloat(this.yLabels[this.yLabels.length - 1]) || 100;
@@ -73,31 +69,17 @@ export class MetricChartComponent {
     return this.height / (this.maxValue - this.minValue);
   }
 
-
-  get current(): number {
-    const values = this.data();
-    return values[values.length - 1] ?? 0;
-  }
-
-  get curveLine() {
-    const values = this.data();
-    if (values.length < 2) return '';
+  get curveLine(): string {
+    const values = this.data;
+    if (!values || values.length < 2) return '';
 
     const scaleX = this.width / (values.length - 1);
-    // Use escala Y baseada no range minValue -> maxValue, porém ajustado para a escala das labels
-    // Para isso, criamos escala relativa dentro do intervalo das labels
     const escalaYRange = this.height / (this.maxLabel - this.minLabel);
 
     const points = values.map((val, i) => {
       const x = i * scaleX;
-
-      // Clampe o valor para não sair do intervalo minValue/maxValue
       const clampedVal = Math.min(Math.max(val, this.minValue), this.maxValue);
-
-      // Ajuste o y relativo ao clampedVal e as labels
-      // Importante usar minLabel para alinhar com o eixo y do gráfico
       const y = this.height - (clampedVal - this.minLabel) * escalaYRange;
-
       return { x, y };
     });
 
@@ -112,7 +94,6 @@ export class MetricChartComponent {
 
     return d;
   }
-
 
   trackByIndex(index: number): number {
     return index;

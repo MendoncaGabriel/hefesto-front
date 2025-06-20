@@ -1,9 +1,9 @@
-import { Injectable, signal } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 export interface ChartData {
-  legendaX: string[];
-  legendaY: string[];
+  xLabels: string[];
+  yLabels: string[];
   data: number[];
 }
 
@@ -32,11 +32,11 @@ const mockSoquet: SoquetData  = {
         current: 1000,
         max: 1600,
         chart: {
-          legendaX: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
-          legendaY: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
+          xLabels: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
+          yLabels: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
           data: [
-            1000, 1200, 1400,
-            1500, 1200, 1000
+            1000, 1200, 1300,
+            1400, 1500, 1600
           ]
         }
       },
@@ -47,11 +47,11 @@ const mockSoquet: SoquetData  = {
         current: 1000,
         max: 1600,
         chart: {
-          legendaX: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
-          legendaY: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
+          xLabels: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
+          yLabels: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
           data: [
-            1000, 1200, 1400,
-            1500, 1200, 1000
+            1000, 1000, 1000,
+            1000, 1500, 1000
           ]
         }
       },
@@ -62,8 +62,8 @@ const mockSoquet: SoquetData  = {
         current: 1000,
         max: 1600,
         chart: {
-          legendaX: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
-          legendaY: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
+          xLabels: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
+          yLabels: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
           data: [
             1000, 1200, 1400,
             1500, 1200, 1000
@@ -77,8 +77,8 @@ const mockSoquet: SoquetData  = {
         current: 1000,
         max: 1600,
         chart: {
-          legendaX: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
-          legendaY: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
+          xLabels: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
+          yLabels: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
           data: [
             1000, 1200, 1400,
             1500, 1200, 1000
@@ -94,8 +94,8 @@ const mockSoquet: SoquetData  = {
         current: 1000,
         max: 1600,
         chart: {
-          legendaX: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
-          legendaY: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
+          xLabels: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
+          yLabels: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
           data: [
             1000, 1200, 1400,
             1500, 1200, 1000
@@ -109,8 +109,8 @@ const mockSoquet: SoquetData  = {
         uom: "ppm",
         max: 1600,
         chart: {
-          legendaX: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
-          legendaY: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
+          xLabels: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
+          yLabels: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
           data: [
             1000, 1200, 1400,
             1500, 1200, 1000
@@ -124,8 +124,8 @@ const mockSoquet: SoquetData  = {
         alert: "none",
         max: 1600,
         chart: {
-          legendaX: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
-          legendaY: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
+          xLabels: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
+          yLabels: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
           data: [
             1000, 1200, 1400,
             1500, 1200, 1000
@@ -139,8 +139,8 @@ const mockSoquet: SoquetData  = {
         alert: "none",
         max: 1600,
         chart: {
-          legendaX: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
-          legendaY: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
+          xLabels: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
+          yLabels: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
           data: [
             1000, 1200, 1400,
             1500, 1200, 1000
@@ -154,8 +154,8 @@ const mockSoquet: SoquetData  = {
         alert: "none",
         max: 1600,
         chart: {
-          legendaX: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
-          legendaY: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
+          xLabels: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
+          yLabels: ['0.00', '500.0', '1000.0', '1500.0', '2000.0'],
           data: [
             1000, 1200, 1400,
             1500, 1200, 1000
@@ -164,6 +164,7 @@ const mockSoquet: SoquetData  = {
       },
     ]
 }
+
 
 @Injectable({
   providedIn: 'root'
@@ -180,7 +181,34 @@ export class GlobalService {
     return this.subject.asObservable()
   }
 
-  private simulateSocket(){
-    this.subject.next(mockSoquet)
+  mockOld: any = []
+
+private simulateSocket() {
+  if (this.mockOld.length === 0) {
+    this.mockOld = JSON.parse(JSON.stringify(mockSoquet)); // garante cópia independente
   }
+
+  // Usa o estado anterior
+  const novoMock: SoquetData = JSON.parse(JSON.stringify(this.mockOld));
+
+  novoMock.nitrogenGenerator = novoMock.nitrogenGenerator.map(metric => {
+    const oldData = metric.chart.data;
+    const oldXLabels = metric.chart.xLabels;
+
+    // Move o último para o início
+    oldData.unshift(oldData.pop()!);
+    oldXLabels.unshift(oldXLabels.pop()!);
+
+    // Atualiza valor atual
+    metric.current = oldData[0];
+
+    return metric;
+  });
+
+  // Atualiza mockOld com novo estado
+  this.mockOld = JSON.parse(JSON.stringify(novoMock));
+
+    this.subject.next(novoMock);
+}
+
 }
