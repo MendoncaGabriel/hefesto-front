@@ -1,115 +1,87 @@
 <svg
-  viewBox="0 0 600 350"
+  [attr.width]="width + 70"
+  [attr.height]="height + 50"
+  [attr.viewBox]="'-50 -30 ' + (width + 70) + ' ' + (height + 70)"
+
   preserveAspectRatio="xMidYMid meet"
-  class="w-full h-auto rounded-md ring-4 ring-cyan-500/40 bg-gradient-to-bl from-[#0c1220] to-[#191e40] text-white"
+  class="w-full h-auto text-white"
 >
-  <g transform="translate(60, 20)">
-    <!-- Linhas de grade -->
-    <g *ngFor="let y of linhasY; trackBy: trackByIndex">
-      <line x1="0" [attr.y1]="y" x2="490" [attr.y2]="y" stroke="#4B5563" stroke-dasharray="4 2" />
-    </g>
-    <g *ngFor="let x of linhasX; trackBy: trackByIndex">
-      <line [attr.x1]="x" y1="0" [attr.x2]="x" y2="300" stroke="#4B5563" stroke-dasharray="4 2" />
-    </g>
-
-    <!-- Faixa entre mínimo e máximo -->
-    <rect
-      x="0"
-      [attr.y]="yMaximo"
-      width="500"
-      [attr.height]="faixaAltura"
-      fill="#3b82f6"
-      fill-opacity="0.1"
+  <!-- Grade de fundo -->
+  <g stroke="#4B5563" stroke-opacity="0.3" stroke-width="1">
+    <!-- Linhas horizontais (Y) -->
+    <line
+      *ngFor="let y of yLines; trackBy: trackByIndex"
+      x1="0"
+      [attr.y1]="y"
+      [attr.x2]="width"
+      [attr.y2]="y"
     />
-
-    <!-- Linhas de limite -->
-    <line x1="0" [attr.y1]="yMaximo" x2="500" [attr.y2]="yMaximo" stroke="#10B981" stroke-width="2" stroke-dasharray="6 3" />
-    <line x1="0" [attr.y1]="yMinimo" x2="500" [attr.y2]="yMinimo" stroke="#10B981" stroke-width="2" stroke-dasharray="6 3" />
-
-    <!-- Eixos -->
-    <line x1="0" y1="300" x2="500" y2="300" stroke="white" />
-    <line x1="0" y1="0" x2="0" y2="300" stroke="white" />
-
-    <!-- Texto Y -->
-    @for (i of legendaY; track $index) {
-      <text
-        x="-10"
-        [attr.y]="300 - ($index * (300 / (legendaY.length - 1)))"
-        text-anchor="end"
-        alignment-baseline="middle"
-        font-size="14"
-        fill="white"
-      >
-        {{ i }}
-      </text>
-    }
-
-
-
-    <!-- Texto X -->
-    @for (i of legendaX; track $index) {
-      <text
-        [attr.x]="$index * (500 / (legendaX.length - 1))"
-        y="320"
-        text-anchor="middle"
-        font-size="14"
-        fill="white"
-      >
-        {{ i }}
-      </text>
-    }
-
-
-
-    <!-- Linha curva com animação -->
-    <path
-      [attr.d]="linhaCurva"
-      fill="none"
-      stroke="#3b82f6"
-      stroke-width="3"
-      class="transition-all duration-300 ease-in-out animate-line"
+    <!-- Linhas verticais (X) -->
+    <line
+      *ngFor="let x of xLines; trackBy: trackByIndex"
+      [attr.x1]="x"
+      y1="0"
+      [attr.x2]="x"
+      [attr.y2]="height"
     />
+  </g>
 
-    <!-- Texto Máx com fundo -->
-    <rect
-      x="-50"
-      [attr.y]="yMaximo - 12"
-      width="40"
-      height="20"
-      rx="4"
-      fill="#10B981"
-      fill-opacity="0.9"
-    />
+  <!-- Linha curva -->
+  <path
+    [attr.d]="curveLine"
+    fill="none"
+    stroke="#10B981"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <!-- Linha mínima -->
+  <line
+    [attr.x1]="0"
+    [attr.x2]="width"
+    [attr.y1]="yMin"
+    [attr.y2]="yMin"
+    stroke="#EF4444"
+    stroke-width="2"
+    stroke-dasharray="4"
+  />
+  <text x="4" [attr.y]="yMin - 4" font-size="16" fill="#F87171">Min: {{ minValue }}</text>
+
+  <!-- Linha máxima -->
+  <line
+    [attr.x1]="0"
+    [attr.x2]="width"
+    [attr.y1]="yMax"
+    [attr.y2]="yMax"
+    stroke="#22C55E"
+    stroke-width="2"
+    stroke-dasharray="4"
+  />
+  <text x="4" [attr.y]="yMax - 4" font-size="16" fill="#34D399">Max: {{ maxValue }}</text>
+
+
+  <!-- Legendas do eixo Y (fora da grade, à esquerda) -->
+  <g *ngIf="yLabels.length > 0" font-size="12" fill="#E5E7EB">
     <text
-      x="-30"
-      [attr.y]="yMaximo"
-      text-anchor="middle"
-      alignment-baseline="middle"
-      font-size="14"
-      fill="white"
+      *ngFor="let label of yLabels; let i = index; trackBy: trackByIndex"
+      x="-10"
+      [attr.y]="height - (i * (height / (yLabels.length - 1))) + 4"
+      text-anchor="end"
     >
-      Máx
+      {{ label }}
     </text>
+  </g>
 
-    <!-- Texto Mín com fundo -->
-    <rect
-      x="-50"
-      [attr.y]="yMinimo - 12"
-      width="40"
-      height="20"
-      rx="4"
-      fill="#10B981"
-      fill-opacity="0.9"
-    />
+  <!-- Legendas do eixo X (fora da grade, abaixo) -->
+  <g *ngIf="xLabels.length > 0" font-size="12" fill="#E5E7EB">
     <text
-      x="-30"
-      [attr.y]="yMinimo"
+      *ngFor="let label of xLabels; let i = index; trackBy: trackByIndex"
+      [attr.x]="i * (width / (xLabels.length - 1))"
+      [attr.y]="height + 20"
       text-anchor="middle"
-      alignment-baseline="middle"
-      font-size="14"
-      fill="white"
     >
-      Mín
+      {{ label }}
     </text>
   </g>
 </svg>

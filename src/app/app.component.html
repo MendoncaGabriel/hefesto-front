@@ -1,10 +1,8 @@
-<div
-  class="background p-4 bg-gradient-to-tl to-[#262e61] from-[#0e1524] h-screen overflow-hidden flex flex-col gap-4 "
->
+<div class="background p-4 bg-gradient-to-tl to-[#262e61] from-[#0e1524] h-screen overflow-hidden flex flex-col gap-4 ">
   <h2 class="title">Nitrogen Entry into the System</h2>
   <div class="grid grid-cols-4 gap-5">
     @for (i of metricsIndicator; track $index) {
-      <app-metric-indicator [title]="i.title" [metric]="i.metric" [alert]="i.alert"/>
+    <app-metric-indicator [title]="i.title" [metric]="i.metric" [alert]="i.alert" />
 
     }
   </div>
@@ -12,12 +10,11 @@
   <!-- grafico -->
   <div class="grid grid-cols-4 gap-5">
     @for (i of metricsChart; track $index) {
-      <app-metric-chart
-        [legendaX]="i.legendaX"
-        [legendaY]="i.legendaY"
-        [maximo]="i.maximo"
-        [minimo]="i.minimo"
-      />
+    <div
+      class="w-full h-auto rounded-md ring-4 ring-cyan-500/40 bg-gradient-to-bl from-[#0c1220] to-[#191e40] text-white">
+
+      <app-metric-chart [xLabels]="i.legendaX" [yLabels]="i.legendaY" [maxValue]="i.maximo" [minValue]="i.minimo" />
+    </div>
     }
   </div>
 
@@ -25,12 +22,7 @@
 
   <div class="grid grid-cols-5 gap-4">
     @for (i of cardLines; track $index) {
-      <app-card-line
-        [title]="i.title"
-        [current]="i.current"
-        [max]="i.max"
-
-      />
+    <app-card-line [title]="i.title" [current]="i.current" [max]="i.max" />
     }
   </div>
 
