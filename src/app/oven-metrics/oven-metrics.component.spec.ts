@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CardLineComponent } from './card-line.component';
+import { OvenMetrics } from './oven-metrics.component';
 
 describe('CardLineComponent', () => {
-  let component: CardLineComponent;
-  let fixture: ComponentFixture<CardLineComponent>;
+  let component: OvenMetrics;
+  let fixture: ComponentFixture<OvenMetrics>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CardLineComponent]
+      imports: [OvenMetrics]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(CardLineComponent);
+    fixture = TestBed.createComponent(OvenMetrics);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

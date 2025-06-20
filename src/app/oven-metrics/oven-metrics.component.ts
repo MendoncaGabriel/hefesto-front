@@ -6,10 +6,10 @@ import { MetricChartComponent } from "../metric-chart/metric-chart.component";
 @Component({
   selector: 'app-card-line',
   imports: [ProgressBarComponent, NgClass, CommonModule, MetricChartComponent],
-  templateUrl: './card-line.component.html',
-  styleUrl: './card-line.component.css'
+  templateUrl: './oven-metrics.component.html',
+  styleUrl: './oven-metrics.component.css'
 })
-export class CardLineComponent {
+export class OvenMetrics {
   @Input() title: string = "";
   @Input() current: number = 0;
   @Input() max: number = 100;
