@@ -1,21 +1,23 @@
 <div class="relative bg-gradient-to-bl from-[#0c1220] to-[#191e40]">
+  <!-- ring -->
   <div
-    class="absolute inset-0 rounded-md ring-4 pointer-events-none"
+    class="absolute ring-cyan-500/40 inset-0 rounded-md ring-4 pointer-events-none"
     [ngClass]="{
-      'pulse-fast ring-red-500': pulse(),
-      'ring-cyan-500/40': !pulse()
+      'pulse-fast ring-red-500': alert == 'red',
+      'pulse-fast ring-orange-500': alert == 'orange',
     }"
   ></div>
+
+  <!-- component -->
   <div
     class=" px-4 py-1 text-cyan-50 font-bold flex items-center justify-between"
     [ngClass]="{
-      'bg-red-950': pulse(),
-      'to-[#191e40] from-[#0c1220]': !pulse(),
+      'bg-red-900 text-red-100': alert == 'red',
+      'bg-orange-900 text-orange-100': alert == 'orange',
     }"
   >
     <h2 class="text-lg">{{title}}</h2>
-    <p class="text-lg">{{metric}}</p>
+    <p class="text-lg">{{metric}} {{uom}}</p>
   </div>
-
 </div>
 

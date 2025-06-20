@@ -1,14 +1,19 @@
 <div class="background p-4 bg-gradient-to-tl to-[#262e61] from-[#0e1524] h-screen overflow-hidden flex flex-col gap-4 ">
+
+  <!-- forno -->
   <h2 class="title">Nitrogen Entry into the System</h2>
   <div class="grid grid-cols-4 gap-5">
-    @for (i of metricsIndicator; track $index) {
-    <app-metric-indicator [title]="i.title" [metric]="i.metric" [alert]="i.alert" />
-
-    }
+    @for (i of nitrogenGenerator(); track $index) {
+      <app-metric-indicator
+        [title]="i.title"
+        [metric]="i.current"
+        [uom]="i.uom"
+        [alert]="i.alert" />
+      }
   </div>
 
-  <!-- grafico -->
-  <div class="grid grid-cols-4 gap-5">
+  <!-- forno -->
+  <!-- <div class="grid grid-cols-4 gap-5">
     @for (i of metricsChart; track $index) {
     <div
       class="w-full h-auto rounded-md ring-4 ring-cyan-500/40 bg-gradient-to-bl from-[#0c1220] to-[#191e40] text-white">
@@ -28,7 +33,7 @@
       [max]="i.max"
     />
     }
-  </div>
+  </div> -->
 
 </div>
 

@@ -1,5 +1,5 @@
 import { NgClass } from '@angular/common';
-import { Component, computed, Input, signal } from '@angular/core';
+import { Component, computed, Input } from '@angular/core';
 
 @Component({
   selector: 'app-metric-indicator',
@@ -9,8 +9,7 @@ import { Component, computed, Input, signal } from '@angular/core';
 })
 export class MetricIndicatorComponent {
   @Input() title: string = "";
-  @Input() alert?: boolean = false;
-  @Input() metric: string = "";
-
-  pulse = computed(() => this.alert)
+  @Input() alert: "red" | 'orange' | 'none' = 'none';
+  @Input() metric: number = 0;
+  @Input() uom: string = "";
 }

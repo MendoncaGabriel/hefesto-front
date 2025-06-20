@@ -1,30 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { OvenMetrics } from "./oven-metrics/oven-metrics.component";
 import { MetricIndicatorComponent } from "./metric-indicator/metric-indicator.component";
 import { MetricChartComponent } from "./metric-chart/metric-chart.component";
-import { GlobalService } from './global.service';
-
-interface CardLine {
-  title: string
-  current: number
-  max: number
-}
-
-interface MetricChart {
-  legendaX: string[]
-  legendaY: string[]
-  minimo: number
-  maximo: number
-  title: string
-  current: string
-}
-
-interface MetricIndicator {
-  title: string;
-  metric: string;
-  alert?: boolean;
-}
+import { BaseMetric, GlobalService } from './global.service';
 
 
 @Component({
@@ -38,18 +17,12 @@ export class AppComponent {
     readonly globalService: GlobalService
   ){
 
-
     globalService.getdata()
     .subscribe(data => {
-      console.log(data)
+      this.oven.set(data.oven)
+      this.nitrogenGenerator.set(data.nitrogenGenerator)
     })
-
   }
-
-
-
-  title = 'hefesto-front';
-  cardLines: CardLine[] = []
-  metricsChart: MetricChart[] = []
-  metricsIndicator: MetricIndicator[] = []
+  oven = signal<BaseMetric[]>([])
+  nitrogenGenerator = signal<BaseMetric[]>([])
 }

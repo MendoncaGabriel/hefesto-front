@@ -12,23 +12,23 @@ export interface BaseMetric {
   current: number;
   max: number;
   chart: ChartData;
+  alert: "red" | 'orange' | 'none';
+  uom: string;
 }
 
-export interface MetricWithUoM extends BaseMetric {
-  uom: string; // Unidade de medida (ex: bar, m³/h, ppm)
-}
 
 export interface SoquetData {
-  oven: MetricWithUoM[];
+  oven: BaseMetric[];
   nitrogenGenerator: BaseMetric[];
 }
 
 
 const mockSoquet: SoquetData  = {
-    oven: [
+    nitrogenGenerator: [
       {
         title: "Pressure",
         uom: "bar",
+        alert: "none",
         current: 1000,
         max: 1600,
         chart: {
@@ -42,6 +42,7 @@ const mockSoquet: SoquetData  = {
       },
       {
         title: "Flow",
+        alert: "none",
         uom: "m³/h",
         current: 1000,
         max: 1600,
@@ -57,6 +58,7 @@ const mockSoquet: SoquetData  = {
       {
         title: "Purity",
         uom: "ppm",
+        alert: "none",
         current: 1000,
         max: 1600,
         chart: {
@@ -71,6 +73,7 @@ const mockSoquet: SoquetData  = {
       {
         title: "Temperature",
         uom: "ºC",
+        alert: "none",
         current: 1000,
         max: 1600,
         chart: {
@@ -83,9 +86,11 @@ const mockSoquet: SoquetData  = {
         }
       },
     ],
-    nitrogenGenerator: [
+    oven: [
       {
         title: "Jari",
+        uom: "ppm",
+        alert: "none",
         current: 1000,
         max: 1600,
         chart: {
@@ -100,6 +105,8 @@ const mockSoquet: SoquetData  = {
       {
         title: "Jutai",
         current: 1000,
+        alert: "none",
+        uom: "ppm",
         max: 1600,
         chart: {
           legendaX: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
@@ -112,7 +119,9 @@ const mockSoquet: SoquetData  = {
       },
       {
         title: "Xingu",
+        uom: "ppm",
         current: 1000,
+        alert: "none",
         max: 1600,
         chart: {
           legendaX: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
@@ -125,7 +134,9 @@ const mockSoquet: SoquetData  = {
       },
       {
         title: "Negro",
+        uom: "ppm",
         current: 1000,
+        alert: "none",
         max: 1600,
         chart: {
           legendaX: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
@@ -138,7 +149,9 @@ const mockSoquet: SoquetData  = {
       },
       {
         title: "Line 2",
+        uom: "ppm",
         current: 1000,
+        alert: "none",
         max: 1600,
         chart: {
           legendaX: ['14:00', '14:10', '14:20', '14:30', '14:40', '14:50'],
