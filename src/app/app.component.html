@@ -1,4 +1,4 @@
-<div class="bg-gradient-to-tl to-[#262e61] from-[#0e1524] h-screen overflow-x-hidden flex flex-col gap-x-4 ">
+<div class="custom-scroll bg-gradient-to-tl to-[#262e61] from-[#0e1524] h-screen overflow-x-hidden flex flex-col gap-x-4 ">
 
   <app-header />
 
@@ -6,7 +6,6 @@
   <main class="px-10 background">
     <!-- indicadores -->
     <h2 class="title">Nitrogen Entry into the System</h2>
-
 
     <!-- gerador nitrogenio -->
      <div class="grid grid-cols-5">
@@ -42,16 +41,19 @@
      </div>
 
 
-    <!-- forno -->
+    <!-- forno title -->
     <h2 class="title">Nitrogen Consumption in the Oven</h2>
+
+    <!-- forno -->
     <div class="flex overflow-auto gap-4 p-5">
       @for (i of oven(); track $index) {
 
-      <app-card-line
-        [title]="i.title"
-        [current]="i.current"
-        [max]="i.max"
-      />
+        <app-oven-metrics
+          [title]="i.title"
+          [current]="i.current"
+          [max]="i.max"
+
+        />
       }
     </div>
   </main>

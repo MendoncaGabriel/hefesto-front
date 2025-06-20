@@ -4,7 +4,7 @@ import { CommonModule, NgClass } from '@angular/common';
 import { MetricChartComponent } from "../metric-chart/metric-chart.component";
 
 @Component({
-  selector: 'app-card-line',
+  selector: 'app-oven-metrics',
   imports: [ProgressBarComponent, NgClass, CommonModule, MetricChartComponent],
   templateUrl: './oven-metrics.component.html',
   styleUrl: './oven-metrics.component.css'
