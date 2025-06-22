@@ -1,38 +1,44 @@
-<nav class="bg-gray-50 shadow-md px-6 py-3">
+<nav class="bg-gray-50/90 shadow-lg px-6 py-3 border-b-4 border-[#054C85] ">
   <div class="max-w-7xl mx-auto flex items-center justify-between">
 
-    <img src="/logo.png" alt="logo" class="h-10">
+    <div class="flex items-center gap-3">
+      <img src="/logo.png" alt="logo" class="h-8 p-1  ">
+      <span class="text-xl font-extrabold text-[#054C85]">HEFESTO</span>
+    </div>
 
     <!-- Links -->
-    <ul class="hidden duration-200 ease-in-out text-lg md:flex gap-6 text-gray-700 font-semibold">
-      <li><a href="#" class="hover:text-blue-800 hover:bg-blue-100 px-4 py-2 rounded-lg transition">Home</a></li>
-      <li><a href="#" class="hover:text-blue-800 hover:bg-blue-100 px-4 py-2 rounded-lg transition">Settings</a></li>
-      <li><a href="#" class="hover:text-blue-800 hover:bg-blue-100 px-4 py-2 rounded-lg transition">Profiler</a></li>
-      <li><a href="#" class="hover:text-blue-800 hover:bg-blue-100 px-4 py-2 rounded-lg transition">About</a></li>
+    <ul class="hidden md:flex gap-6 text-base font-semibold tracking-wide">
+      <li>
+        <a href="#" class="flex items-center gap-2 px-4 py-2 rounded-lg text-[#054C85]  hover:bg-cyan-50 hover:text-cyan-900 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0h6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="#" class="flex items-center gap-2 px-4 py-2 rounded-lg text-[#054C85] hover:bg-cyan-50 hover:text-cyan-900 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Services
+        </a>
+      </li>
+      <li>
+        <a href="#" class="flex items-center gap-2 px-4 py-2 rounded-lg text-[#054C85] hover:bg-cyan-50 hover:text-cyan-900 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5.121 17.804A13.937 13.937 0 0112 15c2.485 0 4.824.635 6.879 1.804M15 11a3 3 0 11-6 0 3 3 0 016 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Profile
+        </a>
+      </li>
+      <li>
+        <a href="#" class="flex items-center gap-2 px-4 py-2 rounded-lg text-[#054C85] hover:bg-cyan-50 hover:text-cyan-900 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          About
+        </a>
+      </li>
     </ul>
 
     <!-- Botão de ação -->
-    <button class="hidden text-lg duration-200 ease-in-out md:inline-block text-red-700 hover:text-red-500 font-semibold px-4 py-2 rounded-lg hover:bg-red-100 cursor-pointer transition">
-      logout
+    <button class="cursor-pointer hidden md:inline-block text-base font-semibold px-5 py-2 rounded-lg  text-red-500 hover:bg-red-400 hover:text-white transition-all ">
+      Logout
     </button>
 
-    <!-- Menu mobile -->
-    <div class="md:hidden">
-      <button id="menu-btn" class="text-gray-700 focus:outline-none">
-        <!-- Ícone hamburguer (pode trocar por SVG) -->
-        ☰
-      </button>
-    </div>
-  </div>
-
-  <!-- Menu mobile dropdown (opcional) -->
-  <div id="mobile-menu" class="md:hidden hidden px-4 pt-4 pb-2 space-y-2">
-    <a href="#" class="block text-gray-700 hover:text-blue-700">Início</a>
-    <a href="#" class="block text-gray-700 hover:text-blue-700">Serviços</a>
-    <a href="#" class="block text-gray-700 hover:text-blue-700">Sobre</a>
-    <a href="#" class="block text-gray-700 hover:text-blue-700">Contato</a>
-    <button class="w-full text-left bg-blue-700 text-white px-4 py-2 mt-2 rounded-lg hover:bg-blue-800 transition">
-      Entrar
-    </button>
+    
   </div>
 </nav>
