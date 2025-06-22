@@ -1,10 +1,11 @@
-<div class="custom-scroll bg-gradient-to-tl to-[#262e61] from-[#0e1524] min-h-screen overflow-x-hidden flex flex-col">
+<div class="custom-scroll min-h-screen overflow-x-hidden flex flex-col" 
+     style="background: radial-gradient(circle, #013356, #00020E);">
 
   <app-header />
 
   <main class="px-4 md:px-10 py-6 background">
     <!-- Título principal -->
-    <h2 class="title text-2xl font-bold text-cyan-100 mb-6 tracking-wide text-center">Nitrogen Generator</h2>
+    <h2 class="title text-2xl font-bold text-cyan-100 mb-6 tracking-wide ">Nitrogen Generator</h2>
 
     <!-- Gerador Nitrogênio -->
     <div class="w-full flex flex-col lg:flex-row items-center gap-8 mb-12">
@@ -14,7 +15,9 @@
       <div class="w-full lg:w-3/5">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
           @for (i of nitrogenGenerator(); track $index) {
-            <div class="w-full h-auto rounded-md ring-4 ring-cyan-500/40 bg-gradient-to-bl from-[#0c1220] to-[#191e40] text-white">
+            <div 
+            class="w-full h-auto rounded-md ring-4 ring-[#21B2FC]/40 bg-gradient-to-br from-[#000614ea] to-[#10192f] text-white"
+            >
               <app-metric-indicator
                 [title]="i.title"
                 [metric]="i.current"
@@ -32,6 +35,7 @@
                 [height]="200"
               />
             </div>
+
           }
         </div>
       </div>
@@ -53,5 +57,16 @@
   </main>
 
 </div>
+
+<footer class="w-full flex items-center justify-between bg-gradient-to-l from-gray-50  to-gray-200 p-4 px-10   gap-2">
+    
+  <img src="/logo.png" alt="logo" class="h-10 px-4 py-2  p-1" />
+  
+  <p class="text-[#054C85] text-center font-semibold">
+    &copy; 2025 HEFESTO. All rights reserved.
+  </p>
+</footer>
+
+
 
 <router-outlet />
