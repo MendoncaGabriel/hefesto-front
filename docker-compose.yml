@@ -7,7 +7,7 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "8040:8040"
+      - "4200:8040"
     restart: on-failure
     deploy:
       resources:
