@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   hefesto-front:
     container_name: hefesto-frontend
@@ -7,10 +5,5 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "9987:4200"
+      - "9987:4200"  # Porta externa 9987 -> porta interna 4200 do ng serve
     restart: on-failure
-    deploy:
-      resources:
-        limits:
-          memory: 1g
-          cpus: '1'
