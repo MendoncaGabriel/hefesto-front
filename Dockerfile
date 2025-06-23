@@ -1,8 +1,12 @@
-FROM nginx:alpine
+FROM node:18
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+WORKDIR /app
 
-COPY ./public /usr/share/nginx/html
+COPY package*.json ./
+RUN npm install
 
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+COPY . .
+
+EXPOSE 4200
+
+CMD ["npm", "start"]  # ou "ng", "serve", "--host", "0.0.0.0"
