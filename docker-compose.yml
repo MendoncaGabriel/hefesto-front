@@ -8,14 +8,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - "8040:8040"
-    restart_policy:
-      condition: on-failure
-      delay: 10s
-      max_attempts: 3
-      window: 120s
+    restart: on-failure
     deploy:
       resources:
         limits:
-          memory: 5g
-          cpus: '1'   
-    
+          memory: 1g
+          cpus: '1'
+

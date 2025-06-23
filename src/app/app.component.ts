@@ -5,11 +5,12 @@ import { MetricIndicatorComponent } from "./metric-indicator/metric-indicator.co
 import { MetricChartComponent } from "./metric-chart/metric-chart.component";
 import { BaseMetric, GlobalService } from './global.service';
 import { HeaderComponent } from "./header/header.component";
+import { FooterComponent } from "./footer/footer.component";
 
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, OvenMetrics, MetricIndicatorComponent, MetricChartComponent, HeaderComponent],
+  imports: [RouterOutlet, OvenMetrics, MetricIndicatorComponent, MetricChartComponent, HeaderComponent, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

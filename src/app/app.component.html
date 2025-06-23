@@ -1,4 +1,4 @@
-<div class="custom-scroll min-h-screen overflow-x-hidden flex flex-col" 
+<div class="custom-scroll min-h-screen overflow-x-hidden flex flex-col"
      style="background: radial-gradient(circle, #013356, #00020E);">
 
   <app-header />
@@ -15,7 +15,7 @@
       <div class="w-full lg:w-3/5">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
           @for (i of nitrogenGenerator(); track $index) {
-            <div 
+            <div
             class="w-full h-auto rounded-md ring-4 ring-[#21B2FC]/40 bg-gradient-to-br from-[#000614ea] to-[#10192f] text-white"
             >
               <app-metric-indicator
@@ -58,15 +58,7 @@
 
 </div>
 
-<footer class="border-t-4 border-[#054C85] w-full flex items-center justify-between bg-gradient-to-l from-gray-50  to-gray-200 p-4 px-10   gap-2">
-    
-  <img src="/logo.png" alt="logo" class="h-10 px-4 py-2  p-1" />
-  
-  <p class="text-[#054C85] text-center font-semibold">
-    &copy; 2025 HEFESTO. All rights reserved.
-  </p>
-</footer>
 
-
+<app-footer />
 
 <router-outlet />
